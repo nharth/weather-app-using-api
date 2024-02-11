@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+        <a href="/">Weather App</a>
+        <% if (locals.info) { %>
+            <div class= "search">
+                <form action="/info" method="POST">
+                    <input type="text" name="city" placeholder="Enter a city" size="30">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        <% } %>
+
+    </div>
+    <% if (locals.info) { %>
+    <div class="main">
+        <div class="weather-info">
+            <h1>Weather for <%= info.name %></h1>
+            <div class="temp-desc-img">
+                <div class = "temp-desc">
+                    <p class="temp"><%= Math.round(info.main.temp)%>&deg;F</p>
+                    <p><%= info.weather[0].description%></p>  
+                </div>
+                <div>
+                    <img src="https://openweathermap.org/img/wn/<%= info.weather[0].icon%>@2x.png" alt="image representing <%= info.weather[0].description%>">
+                </div>
+            </div>
+        </div>
+        <div class="other-info">
+            <div class="feel">
+                <p>Feels like</p>
+                <p class="feel-temp"><%= Math.round(info.main.feels_like)%>&deg;F</p>
+            </div>
+
+            <div class="sub-info">
+               <div>
+                    <p>High: <%= Math.round(info.main.temp_max)%>&deg;F</p>
+                    <p> Min: <%= Math.round(info.main.temp_min)%>&deg;F</p>
+                    <p>Cloudiness: <%= info.clouds.all%>%</p>
+                </div>
+                <div>
+                    <p>Humidity: <%= info.main.humidity%>%</p>
+                    <p>Wind speed: <%= Math.round(info.wind.speed)%> mph</p>
+                    <p>Pressure: <%= info.main.pressure%> hPa</p>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <% } else {%>
+        <div class="container">
+            <form action="/info" method="POST">
+                <h1>Weather App</h1>
+                <label for="city">Enter a City</label>
+                <input type="text" name="city">
+                <input type="submit" value="Search">
+                <% if (locals.err) { %>
+                    <p>Failed to locate city</p>
+                <% } %>
+            </form>
+        </div>
+    <% } %>
+
+    <div></div>
+</body>
+</html>
