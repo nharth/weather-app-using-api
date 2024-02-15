@@ -22,7 +22,9 @@
     <% if (locals.info) { %>
     <div class="main">
         <div class="weather-info">
-            <h1>Weather for <%= info.name %></h1>
+            <h1>Weather for <%= loc %> </h1>
+            <% country = info.sys.country.toLowerCase()%>
+            <img src= 'https://flagicons.lipis.dev/flags/4x3/<%=country%>.svg'; alt="Flag for <%=info.sys.country%>" />
             <div class="temp-desc-img">
                 <div class = "temp-desc">
                     <p class="temp"><%= Math.round(info.main.temp)%>&deg;F</p>
