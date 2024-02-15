@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+        <a href="/">Weather App</a>
+            <div class= "search">
+                <form action="/info" method="POST">
+                    <input type="text" name="city" placeholder="Enter a city" size="30">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+    </div>
+
+    <div class="locations">
+        <h1>Did you mean:</h1>
+        <%for (let i = 0; i < locations.length; i++) {%> 
+            <form action="/location" method="POST">
+                <input type="hidden" name="latitude" value="<%=locations[i].lat %>">
+                <input type="hidden" name="longitude" value="<%=locations[i].lon %>">
+                <input type="submit" value= "<%= locations[i].display_name %>">
+            </form>
+        <% } %>
+        <h2>If not, type in a more specific location</h2>
+    </div>
+
+    <div></div>
+</body>
+</html>
