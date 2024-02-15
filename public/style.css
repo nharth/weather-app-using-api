@@ -110,3 +110,24 @@ input[type="submit"] {
     border-style: none;
     color: white;
 }
+
+img {
+    width: 3em;
+    height: auto;
+}
+
+.locations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.locations  input[type="submit"] {
+    display: block;
+    padding:1em;
+    margin:1em;
+    width:100%
+}
+.locations  input[type="submit"]:hover {
+    background-color: #23d5ab;
+}
