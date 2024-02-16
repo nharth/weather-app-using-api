@@ -131,3 +131,16 @@ img {
 .locations  input[type="submit"]:hover {
     background-color: #23d5ab;
 }
+
+.footer {
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-top:white solid 2px;
+}
+
+.footer img {
+    width: 1.5em;
+    height:auto;
+}
