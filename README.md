@@ -1,3 +1,3 @@
-Live website: https://weatherappbynharth.onrender.com/info
+Live website: https://weatherappbynharth.onrender.com/
 
 Used OpenWeatherMap and OpenStreetMap APIs.
